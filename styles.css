@@ -1,0 +1,80 @@
+#timeTable div.take_appointment {
+  width: fit-content;
+}
+
+header .container,
+.overlapping-lg-card.card-with-bars,
+td.done,
+tr.done,
+#ajax_form_status #center,
+table div.take_appointment .year-month-title,
+table div.take_appointment br,
+tr.pending {
+  display: none;
+}
+
+body header {
+  min-height: 0px;
+}
+
+div.log_in_Register.mx-auto {
+  margin-right: 0 !important;
+}
+
+body,
+div#body,
+div.container {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none;
+}
+
+table div.take_appointment {
+  height: 750px;
+  justify-content: flex-end;
+  display: flex;
+}
+
+table div.take_appointment .appt-table-d,
+table div.take_appointment .appt-table-btn,
+div#timeTable,
+tr td {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+div.inner_timeslot {
+  min-width: 0 !important;
+}
+
+a.appt-table-btn,
+.appt-table-d {
+  width: 36px !important;
+  height: 62px !important;
+  font-size: 1.3rem;
+}
+
+td:empty {
+  display: none !important;
+}
+
+.take_appointment {
+  overflow: auto !important;
+}
+
+tbody,
+tr.desc {
+  float: right;
+}
+
+a.full {
+  height: 50px !important;
+}
+
+a.dispo {
+  height: 50px !important;
+  background-color: #2ea44f !important;
+  border: 1px solid rgba(27, 31, 35, 0.15) !important;
+  border-radius: 6px !important;
+  color: white !important;
+}
