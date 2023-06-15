@@ -37,23 +37,23 @@ if (blockHtml !== savedHtml) {
 // -----
 
 const catchDateSlot = (classToClick) => {
-	const allGreenSlots = document.querySelectorAll(classToClick);
-	
-	console.log('allGreenSlots', allGreenSlots.length);
-	
-	if (allGreenSlots.length) {
-		let slotToClick;
-		
-		if (allGreenSlots.length > 2) {
-			slotToClick = allGreenSlots[2];
-		} else if (allGreenSlots.length > 1) {
-			slotToClick = allGreenSlots[1];
-		} else {
-			slotToClick = allGreenSlots[0];
-		}
-		
-		slotToClick.click();
-	}
+  const allGreenSlots = document.querySelectorAll(classToClick);
+
+  console.log('allGreenSlots', allGreenSlots.length);
+
+  if (allGreenSlots.length) {
+    let slotToClick;
+
+    if (allGreenSlots.length > 2) {
+      slotToClick = allGreenSlots[2];
+    } else if (allGreenSlots.length > 1) {
+      slotToClick = allGreenSlots[1];
+    } else {
+      slotToClick = allGreenSlots[0];
+    }
+
+    slotToClick.click();
+  }
 }
 
 const CLASS_TO_FIND = 'a.dispo'
