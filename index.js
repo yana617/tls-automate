@@ -36,22 +36,18 @@ if (blockHtml !== savedHtml) {
 
 // -----
 
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 const catchDateSlot = (classToClick) => {
   const allGreenSlots = document.querySelectorAll(classToClick);
 
   console.log('allGreenSlots', allGreenSlots.length);
 
   if (allGreenSlots.length) {
-    let slotToClick;
-
-    if (allGreenSlots.length > 2) {
-      slotToClick = allGreenSlots[2];
-    } else if (allGreenSlots.length > 1) {
-      slotToClick = allGreenSlots[1];
-    } else {
-      slotToClick = allGreenSlots[0];
-    }
-
+    const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
+    const slotToClick = allGreenSlots[randomSlotNumber];
     slotToClick.click();
   }
 }
