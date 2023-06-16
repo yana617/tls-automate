@@ -36,14 +36,9 @@ const catchNoPrimeDateSlot = () => {
   slotToClick.click();
 }
 
-// for ALL slots
 if (allGreenSlots.length) {
-  catchRandomDateSlot();
+  catchRandomDateSlot(); // for ALL slots
+  // catchNoPrimeDateSlot(); // for NO PRIME slots
+
   makeAttention();
 }
-
-// for NO PRIME slots
-// if (allGreenSlots.length) {
-//   catchNoPrimeDateSlot();
-//   makeAttention();
-// }
