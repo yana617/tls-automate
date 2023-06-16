@@ -26,19 +26,34 @@ const catchRandomDateSlot = () => {
   slotToClick.click();
 }
 
-const primeTime = ['15:30', '16:00'];
-const catchNoPrimeDateSlot = () => {
-  const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
-  const slotToClick = allGreenSlots[randomSlotNumber];
-  if (primeTime.includes(slotToClick.innerHTML)) {
-    catchNoPrimeDateSlot();
+const catchNoPrimeDateSlot = (clickPrimeIfOnlyPrimeIsLeft = false) => {
+  const primeTime = ['15:30', '16:00'];
+  const isOnlyPrimeLeft = allGreenSlots.every((slot) => primeTime.includes(slot.innerHTML));
+
+
+  if (isOnlyPrimeLeft) {
+    if (clickPrimeIfOnlyPrimeIsLeft) {
+      catchRandomDateSlot();
+    }
+    return;
   }
-  slotToClick.click();
+
+  const clickNoPrimeDate = () => {
+    const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
+    const slotToClick = allGreenSlots[randomSlotNumber];
+    if (primeTime.includes(slotToClick.innerHTML)) {
+      clickNoPrimeDate();
+    }
+    slotToClick.click();
+  }
+
+  clickNoPrimeDate();
 }
 
 if (allGreenSlots.length) {
   catchRandomDateSlot(); // for ALL slots
   // catchNoPrimeDateSlot(); // for NO PRIME slots
+  // catchNoPrimeDateSlot(true); // for NO PRIME or if only prime - ANY slot
 
   makeAttention();
 }
