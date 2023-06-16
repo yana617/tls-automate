@@ -28,8 +28,7 @@ const catchRandomDateSlot = () => {
 
 const catchNoPrimeDateSlot = (clickPrimeIfOnlyPrimeIsLeft = false) => {
   const primeTime = ['15:30', '16:00'];
-  const isOnlyPrimeLeft = allGreenSlots.every((slot) => primeTime.includes(slot.innerHTML));
-
+  const isOnlyPrimeLeft =  [...allGreenSlots].every((slot) => primeTime.includes(slot.innerHTML));
 
   if (isOnlyPrimeLeft) {
     if (clickPrimeIfOnlyPrimeIsLeft) {
@@ -42,7 +41,7 @@ const catchNoPrimeDateSlot = (clickPrimeIfOnlyPrimeIsLeft = false) => {
     const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
     const slotToClick = allGreenSlots[randomSlotNumber];
     if (primeTime.includes(slotToClick.innerHTML)) {
-      clickNoPrimeDate();
+      return clickNoPrimeDate();
     }
     slotToClick.click();
   }
