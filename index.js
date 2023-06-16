@@ -8,49 +8,42 @@ function makeAttention() {
   setTimeout(() => makeAttention(), 800);
 }
 
-function getBlockElement() {
-  return document.querySelector('#timeTable');
-}
-
-const blockElement = getBlockElement();
-if (!blockElement) {
-  document.title = "-- нет слотов";
-}
-
-if (!localStorage.getItem('savedBlock')) {
-  localStorage.setItem('savedBlock', blockElement?.outerHTML);
-}
-
 setTimeout(() => {
   window.scroll(0, 0);
   window.scrollBy(0, 130);
 }, 900);
 
-const blockHtml = blockElement?.outerHTML;
-const savedHtml = localStorage.getItem('savedBlock');
+const CLASS_TO_FIND = 'a.dispo';
+const allGreenSlots = document.querySelectorAll(CLASS_TO_FIND);
 
-if (blockHtml !== savedHtml) {
-  makeAttention();
-  localStorage.setItem('savedBlock', blockElement?.outerHTML);
-}
-
-// -----
-
-function getRandomNumber(min, max) {
+function getRandomNumber(min, max) { // max excluded
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-const catchDateSlot = (classToClick) => {
-  const allGreenSlots = document.querySelectorAll(classToClick);
-
-  console.log('allGreenSlots', allGreenSlots.length);
-
-  if (allGreenSlots.length) {
-    const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
-    const slotToClick = allGreenSlots[randomSlotNumber];
-    slotToClick.click();
-  }
+const catchRandomDateSlot = () => {
+  const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
+  const slotToClick = allGreenSlots[randomSlotNumber];
+  slotToClick.click();
 }
 
-const CLASS_TO_FIND = 'a.dispo'
-catchDateSlot(CLASS_TO_FIND);
+const primeTime = ['15:30', '16:00'];
+const catchNoPrimeDateSlot = () => {
+  const randomSlotNumber = getRandomNumber(0, allGreenSlots.length);
+  const slotToClick = allGreenSlots[randomSlotNumber];
+  if (primeTime.includes(slotToClick.innerHTML)) {
+    catchNoPrimeDateSlot();
+  }
+  slotToClick.click();
+}
+
+// for ALL slots
+if (allGreenSlots.length) {
+  catchRandomDateSlot();
+  makeAttention();
+}
+
+// for NO PRIME slots
+// if (allGreenSlots.length) {
+//   catchNoPrimeDateSlot();
+//   makeAttention();
+// }
