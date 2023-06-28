@@ -78,3 +78,18 @@ a.dispo {
   border-radius: 6px !important;
   color: white !important;
 }
+
+.my-login-btn {
+	position: fixed;
+	z-index: 1000000;
+	left: 20%;
+	top: 40%;
+	height: 100px;
+	width: 300px;
+	background-color: #7CFC00;
+	outline: none;
+	border-radius: 4px;
+	border: grey 1px solid;
+	font-weight: 600;
+	font-size: 26px;
+}
