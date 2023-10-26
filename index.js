@@ -81,7 +81,10 @@ const DATES = () => {
 }
 
 if (allGreenSlots.length) {
+  sendToTG();
   DATES();
+  sendToTG();
+  sendToTG();
 }
 
 const login = () => {
@@ -110,3 +113,23 @@ const login = () => {
   }
 }
 login();
+
+function sendToTG() {
+  // ВСТАВИТЬ НИЖЕ 2 строчки -----
+
+
+
+  // ------
+
+  fetch(`https://api.telegram.org/bot${bot_token}/sendMessage`, {
+    method: "POST",
+    body: JSON.stringify({
+      chat_id,
+      parse_mode: "HTML",
+      text: "ДАТЫ ДАТЫ ДАТЫ",
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  });
+}
