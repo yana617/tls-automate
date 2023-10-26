@@ -83,8 +83,6 @@ const DATES = () => {
 if (allGreenSlots.length) {
   sendToTG();
   DATES();
-  sendToTG();
-  sendToTG();
 }
 
 const login = () => {
